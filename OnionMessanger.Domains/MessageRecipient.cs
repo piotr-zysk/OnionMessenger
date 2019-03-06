@@ -6,11 +6,13 @@ using System.Text;
 
 namespace OnionMessenger.Domains
 {
-    class MessageRecipients
+    public class MessageRecipient
     {
         [Key, Column(Order=0)]
-        public User Recipient { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
         [Key, Column(Order = 1)]
+        public int MessageId { get; set; }
         public Message Message { get; set; }
         [Required]
         public byte Status { get; set; }

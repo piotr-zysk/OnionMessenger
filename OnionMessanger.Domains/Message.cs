@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnionMessenger.Domains
 {
-    class Message : BaseModel
+    public class Message : BaseModel
     {
         [Required]
         [MaxLength(100)]
@@ -16,9 +16,12 @@ namespace OnionMessenger.Domains
         // zaimplementuj custom attribute for default
         // https://stackoverflow.com/questions/19554050/entity-framework-6-code-first-default-value
         public DateTime TimeCreated { get; set; }
+        [Required]
         public int UserId { get; set; }
-        public User Author { get; set; }
+        public User User { get; set; }
+        [Required]
         public byte Priority { get; set; }
+        [Required]
         public bool IsActive { get; set; }
     }
 }
