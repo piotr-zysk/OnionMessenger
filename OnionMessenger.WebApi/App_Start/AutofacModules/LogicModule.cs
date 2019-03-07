@@ -1,24 +1,19 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using OnionMessenger.WebApi.Infrastructure.Interceptors;
-using OnionMessenger.DataAccess.DB;
-using OnionMessenger.DataAccess.Repositories;
+using OnionMessenger.Logic;
+
 
 using System.Linq;
 
 namespace OnionMessenger.WebApi.App_Start.AutofacModules
 {
-    public class DataAccessModule : Module
+    public class LogicsModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<OMDBContext>()
-                //.OnActivated(d => d.Instance.UserName = HttpContext.Current?.User?.Identity?.Name)
-                .InstancePerRequest();
-
-            
-            builder.RegisterAssemblyTypes(typeof(MessageRepository).Assembly)
-                .Where(t => t.Name.EndsWith("Repository"))
+            builder.RegisterAssemblyTypes(typeof(UserLogic).Assembly)
+                .Where(t => t.Name.EndsWith("Logic"))
                 .AsImplementedInterfaces()
                 .EnableInterfaceInterceptors()   // enable interceptor for those particular types
                 .InterceptedBy(typeof(LogInterceptor));  // connect interceptor

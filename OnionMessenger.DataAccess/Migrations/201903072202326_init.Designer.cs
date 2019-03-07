@@ -13,7 +13,7 @@ namespace OnionMessenger.DataAccess.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201903062231567_init"; }
+            get { return "201903072202326_init"; }
         }
         
         string IMigrationMetadata.Source

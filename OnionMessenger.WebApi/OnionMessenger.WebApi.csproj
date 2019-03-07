@@ -200,6 +200,7 @@
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutofacModules\ControllersModule.cs" />
+    <Compile Include="App_Start\AutofacModules\LogicModule.cs" />
     <Compile Include="App_Start\AutofacModules\DataAccessModule.cs" />
     <Compile Include="App_Start\AutofacModules\InterceptorsModule.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -237,6 +238,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\AddChallengeOnUnauthorizedResult.cs" />
     <Compile Include="Filters\AuthenticationFailureResult.cs" />
     <Compile Include="Filters\HttpAuthenticationChallengeContextExtensions.cs" />
@@ -342,6 +344,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OnionMessanger.Domains\OnionMessanger.Domains.csproj">
+      <Project>{a81a9002-3059-492b-8a99-f0719d19ac79}</Project>
+      <Name>OnionMessanger.Domains</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OnionMessenger.DataAccess\OnionMessenger.DataAccess.csproj">
       <Project>{f8e9ba78-52dc-4fb6-a843-fdb9cb4d22ed}</Project>
       <Name>OnionMessenger.DataAccess</Name>
