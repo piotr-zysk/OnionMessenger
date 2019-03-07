@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMessenger.Logic", "Oni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMessenger.DataAccess", "OnionMessenger.DataAccess\OnionMessenger.DataAccess.csproj", "{F8E9BA78-52DC-4FB6-A843-FDB9CB4D22ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMessenger.Infrastructure", "OnionMessenger.Infrastructure\OnionMessenger.Infrastructure.csproj", "{A6871FF0-8956-4866-A192-C3A28160D3C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{F8E9BA78-52DC-4FB6-A843-FDB9CB4D22ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8E9BA78-52DC-4FB6-A843-FDB9CB4D22ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8E9BA78-52DC-4FB6-A843-FDB9CB4D22ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6871FF0-8956-4866-A192-C3A28160D3C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6871FF0-8956-4866-A192-C3A28160D3C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6871FF0-8956-4866-A192-C3A28160D3C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6871FF0-8956-4866-A192-C3A28160D3C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

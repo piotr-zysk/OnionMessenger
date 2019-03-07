@@ -88,9 +88,6 @@
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleHashing.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleHashing.Net.1.0.1\lib\SimpleHashing.Net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -248,7 +245,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\JwtManager.cs" />
-    <Compile Include="Helpers\PasswordHash.cs" />
     <Compile Include="Infrastructure\Interceptors\LogInterceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -349,6 +345,10 @@
     <ProjectReference Include="..\OnionMessenger.DataAccess\OnionMessenger.DataAccess.csproj">
       <Project>{f8e9ba78-52dc-4fb6-a843-fdb9cb4d22ed}</Project>
       <Name>OnionMessenger.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnionMessenger.Infrastructure\OnionMessenger.Infrastructure.csproj">
+      <Project>{a6871ff0-8956-4866-a192-c3a28160d3c4}</Project>
+      <Name>OnionMessenger.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\OnionMessenger.Logic\OnionMessenger.Logic.csproj">
       <Project>{07db36ad-35e8-4b93-89b7-2d4f40de689b}</Project>

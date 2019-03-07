@@ -1,12 +1,7 @@
 ﻿using SimpleHashing.Net;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Autofac;
 
 
-namespace OnionMessenger.WebApi.Helpers
+namespace OnionMessenger.Infrastructure
 {
     public class PasswordHash
     {

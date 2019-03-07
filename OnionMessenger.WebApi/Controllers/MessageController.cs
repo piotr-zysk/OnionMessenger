@@ -2,7 +2,7 @@
 using OnionMessenger.WebApi.Filters;
 using System.Collections.Generic;
 using System.Web.Http;
-using OnionMessenger.WebApi.Helpers;
+using OnionMessenger.Infrastructure;
 
 namespace OnionMessenger.WebApi.Controllers
 {
