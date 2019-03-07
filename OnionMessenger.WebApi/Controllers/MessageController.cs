@@ -2,6 +2,7 @@
 using OnionMessenger.WebApi.Filters;
 using System.Collections.Generic;
 using System.Web.Http;
+using OnionMessenger.WebApi.Helpers;
 
 namespace OnionMessenger.WebApi.Controllers
 {
@@ -21,7 +22,7 @@ namespace OnionMessenger.WebApi.Controllers
        
         public IEnumerable<string> Get()
         {
-            string test = _messageRepository.Test();
+            string test = PasswordHash.Encrypt(_messageRepository.Test());
             string token_user = User.Identity.Name;
             return new string[] { "value1", "value2", token_user, test };
         }

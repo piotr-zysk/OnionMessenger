@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
+using SimpleHashing.Net;
 
 namespace OnionMessenger.WebApi.App_Start
 {
@@ -15,6 +11,8 @@ namespace OnionMessenger.WebApi.App_Start
         {
             var builder = new ContainerBuilder();
             builder.RegisterAssemblyModules(typeof(AutofacConfig).Assembly);
+
+            builder.RegisterType<SimpleHash>().AsImplementedInterfaces();
 
             // Get your HttpConfiguration.
             var config = GlobalConfiguration.Configuration;
