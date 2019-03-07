@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace OnionMessenger.DataAccess.DB
 {
-    class OMDBContext : DbContext
+    public class OMDBContext : DbContext
     {
         public OMDBContext() : base("name=DefaultConnection")
             {}

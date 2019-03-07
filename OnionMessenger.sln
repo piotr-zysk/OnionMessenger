@@ -6,6 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMessanger.Domains", "OnionMessanger.Domains\OnionMessanger.Domains.csproj", "{A81A9002-3059-492B-8A99-F0719D19AC79}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMessenger.WebApi", "OnionMessenger.WebApi\OnionMessenger.WebApi.csproj", "{8C702404-8C5C-4577-AF91-9F2B397F87C6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A81A9002-3059-492B-8A99-F0719D19AC79} = {A81A9002-3059-492B-8A99-F0719D19AC79}
+		{F8E9BA78-52DC-4FB6-A843-FDB9CB4D22ED} = {F8E9BA78-52DC-4FB6-A843-FDB9CB4D22ED}
+		{07DB36AD-35E8-4B93-89B7-2D4F40DE689B} = {07DB36AD-35E8-4B93-89B7-2D4F40DE689B}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMessenger.Logic", "OnionMessenger.Logic\OnionMessenger.Logic.csproj", "{07DB36AD-35E8-4B93-89B7-2D4F40DE689B}"
 	ProjectSection(ProjectDependencies) = postProject

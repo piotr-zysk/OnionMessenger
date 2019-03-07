@@ -3,8 +3,8 @@ using OnionMessenger.Domains;
 
 namespace OnionMessenger.Logic.Repositories
 {
-    interface IMessageRepository
+    public interface IMessageRepository : IRepository<Message>
     {
-        IEnumerable<Message> GetAll();
+        string Test();
     }
 }

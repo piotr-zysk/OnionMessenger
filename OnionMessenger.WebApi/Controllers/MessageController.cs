@@ -1,18 +1,29 @@
-﻿using OnionMessenger.WebApi.Filters;
+﻿using OnionMessenger.Logic.Repositories;
+using OnionMessenger.WebApi.Filters;
 using System.Collections.Generic;
 using System.Web.Http;
 
 namespace OnionMessenger.WebApi.Controllers
 {
     [JwtAuthentication]
-    public class ValuesController : ApiController
+    public class MessageController : ApiController
     {
+        readonly IMessageRepository _messageRepository;
+
+        
+        public MessageController(IMessageRepository messageRepository)
+        {
+            this._messageRepository = messageRepository;
+        }
+       
+
         // GET api/values
        
         public IEnumerable<string> Get()
         {
+            string test = _messageRepository.Test();
             string token_user = User.Identity.Name;
-            return new string[] { "value1", "value2", token_user };
+            return new string[] { "value1", "value2", token_user, test };
         }
 
         // GET api/values/5
