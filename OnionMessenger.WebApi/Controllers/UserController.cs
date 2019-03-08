@@ -3,6 +3,7 @@ using OnionMessenger.Logic;
 using OnionMessenger.Domains;
 using OnionMessenger.WebApi.Filters;
 
+
 namespace OnionMessenger.WebApi.Controllers
 {
     [JwtAuthentication]
@@ -15,13 +16,30 @@ namespace OnionMessenger.WebApi.Controllers
             this._userLogic = userLogic;
         }
 
+        [Route("api/user/get/{id}")]
+        [HttpGet]
         public User Get(int id)
         {
             return _userLogic.GetById(id);
         }
-        
-        public void Register([FromBody]User value)
+
+        [Route("api/user/getbylogin/{login}")]
+        [HttpGet]
+        public User GetByLogin(string login)
         {
+            return _userLogic.GetByLogin(login);
+        }
+
+        [Route("api/user/register")]
+        [HttpPost]
+        public IHttpActionResult Register([FromBody]User value)
+        {
+            var success = _userLogic.Register(value);
+            
+            if (success)
+                return Ok(value);
+            else
+                return BadRequest("User registration failed. Login already exists.");
         }
     }
 }

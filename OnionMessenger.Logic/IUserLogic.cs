@@ -14,5 +14,7 @@ namespace OnionMessenger.Logic
         bool ValidateCredentials(string Login, string Password);
 
         User GetById(int id);
+
+        User GetByLogin(string login);
     }
 }

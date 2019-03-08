@@ -19,7 +19,7 @@ namespace OnionMessenger.DataAccess.Repositories
 
         public void Add(User entity)
         {
-            throw new NotImplementedException();
+            _dataContext.Set<User>().Add(entity);
         }
 
         public void Delete(User entity)
@@ -47,9 +47,14 @@ namespace OnionMessenger.DataAccess.Repositories
             return _dataContext.Set<User>().FirstOrDefault(e => e.Id == id);
         }
 
+        public User GetByLogin(string login)
+        {
+            return _dataContext.Set<User>().FirstOrDefault(e => e.Login == login);
+        }
+
         public void SaveChanges()
         {
-            throw new NotImplementedException();
+            _dataContext.SaveChanges();
         }
 
         public void Update(User entity)
