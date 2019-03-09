@@ -7,7 +7,7 @@ namespace OnionMessenger.WebApi.App_Start
 {
     public class AutofacConfig
     {
-        public static void Configure()
+        public static IContainer Configure()
         {
             var builder = new ContainerBuilder();
             builder.RegisterAssemblyModules(typeof(AutofacConfig).Assembly);
@@ -20,6 +20,8 @@ namespace OnionMessenger.WebApi.App_Start
             var container = builder.Build();
 
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
+            return container;
         }
     }
 }
