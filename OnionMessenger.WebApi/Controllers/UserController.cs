@@ -2,7 +2,7 @@
 using OnionMessenger.Logic;
 using OnionMessenger.Domains;
 using OnionMessenger.WebApi.Filters;
-
+using OnionMessenger.WebApi.ViewModels;
 
 namespace OnionMessenger.WebApi.Controllers
 {
@@ -35,9 +35,19 @@ namespace OnionMessenger.WebApi.Controllers
         public IHttpActionResult Register([FromBody]User value)
         {
             var success = _userLogic.Register(value);
-            
+
             if (success)
-                return Ok(value);
+            {
+                var userRegistered = new UserRegistered()
+                {
+                    Title = "User registered successfully.",
+                    Id = value.Id,
+                    Login = value.Login,
+                    FirstName = value.FirstName,
+                    LastName=value.LastName
+                };
+                return Ok(userRegistered);
+            }
             else
                 return BadRequest("User registration failed. Login already exists.");
         }
