@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using AutoMapper;
+using System.Web.Http;
 using OnionMessenger.Logic;
 using OnionMessenger.Domains;
 using OnionMessenger.WebApi.Filters;
@@ -10,10 +11,12 @@ namespace OnionMessenger.WebApi.Controllers
     public class UserController : ApiController
     {
         IUserLogic _userLogic;
+        IMapper _mapper;
 
-        public UserController(IUserLogic userLogic)
+        public UserController(IUserLogic userLogic, IMapper mapper)
         {
             this._userLogic = userLogic;
+            this._mapper = mapper;
         }
 
         [Route("api/user/get/{id}")]
@@ -38,6 +41,7 @@ namespace OnionMessenger.WebApi.Controllers
 
             if (success)
             {
+                /*
                 var userRegistered = new UserRegistered()
                 {
                     Title = "User registered successfully.",
@@ -46,6 +50,9 @@ namespace OnionMessenger.WebApi.Controllers
                     FirstName = value.FirstName,
                     LastName=value.LastName
                 };
+                */
+
+                var userRegistered = _mapper.Map<UserRegistered>(value);
                 return Ok(userRegistered);
             }
             else
