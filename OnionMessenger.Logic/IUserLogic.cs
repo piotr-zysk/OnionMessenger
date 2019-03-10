@@ -11,10 +11,11 @@ namespace OnionMessenger.Logic
     {
         bool Register(User User);
 
-        bool ValidateCredentials(string Login, string Password);
+        bool ValidateCredentials(UserCredentials userCredentials);
 
         User GetById(int id);
 
         User GetByLogin(string login);
+
     }
 }

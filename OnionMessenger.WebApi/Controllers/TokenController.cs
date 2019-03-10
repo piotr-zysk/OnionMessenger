@@ -1,4 +1,6 @@
-﻿using OnionMessenger.WebApi.Helpers;
+﻿using OnionMessenger.Domains;
+using OnionMessenger.Logic;
+using OnionMessenger.WebApi.Helpers;
 using System.Net;
 using System.Web.Http;
 
@@ -6,22 +8,27 @@ namespace OnionMessenger.WebApi.Controllers
 {
     public class TokenController : ApiController
     {
+        IUserLogic _userLogic;
+
+        public TokenController(IUserLogic userLogic)
+        {
+            this._userLogic = userLogic;
+        }
+
         // This is naive endpoint for demo, it should use Basic authentication to provide token or POST request
+        [Route("api/token")]
         [AllowAnonymous]
-        public string Get(string username, string password)
+        [HttpPost]
+        public IHttpActionResult GetToken([FromBody]UserCredentials userCredentials)
         {
-            if (CheckUser(username, password))
+            if (_userLogic.ValidateCredentials(userCredentials))
             {
-                return JwtManager.GenerateToken(username);
+                return Ok(JwtManager.GenerateToken(userCredentials.Login));
             }
-
-            throw new HttpResponseException(HttpStatusCode.Unauthorized);
+            
+            return StatusCode(HttpStatusCode.Unauthorized);
+            
         }
 
-        public bool CheckUser(string username, string password)
-        {
-            // should check in the database
-            return true;
-        }
     }
 }

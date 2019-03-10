@@ -14,8 +14,22 @@ namespace OnionMessenger.Infrastructure
 
         public static bool Valid(string passwordText, string storedHash)
         {
-            ISimpleHash simpleHash = new SimpleHash();
-            return simpleHash.Verify(passwordText, storedHash);            
+            bool result = false;
+
+            if (storedHash == null) return result;
+            
+            try
+            {
+                ISimpleHash simpleHash = new SimpleHash();
+                result = simpleHash.Verify(passwordText, storedHash);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
+            
         }
 
 

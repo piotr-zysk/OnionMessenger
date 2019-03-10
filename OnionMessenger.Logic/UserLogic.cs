@@ -14,6 +14,7 @@ namespace OnionMessenger.Logic
             this._userRepository = userRepository;
         }
 
+
         public User GetById(int id)
         {
             return _userRepository.GetById(id);
@@ -33,7 +34,7 @@ namespace OnionMessenger.Logic
             if (ExistingUser == null)
             {
                 user.Password = PasswordHash.Encrypt(user.Password);
-                // todo: validate if user does not exist in database yet
+                
                 _userRepository.Add(user);
                 _userRepository.SaveChanges();
                 success = true;
@@ -43,9 +44,16 @@ namespace OnionMessenger.Logic
             
         }
 
-        public bool ValidateCredentials(string Login, string Password)
+        public bool ValidateCredentials(UserCredentials userCredentials)
         {
-            throw new NotImplementedException();
+            string storedPassword = _userRepository.GetByLogin(userCredentials.Login)?.Password;
+
+            if (string.IsNullOrEmpty(storedPassword)) return false;
+
+            if (PasswordHash.Valid(userCredentials.Password, storedPassword)) return true;
+                
+            //if (PasswordHash.Encrypt(password) == UserInDb?.Password) return true;            
+            else return false;            
         }
     }
 }

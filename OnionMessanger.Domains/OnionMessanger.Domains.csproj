@@ -52,6 +52,7 @@
     <Compile Include="Message.cs" />
     <Compile Include="MessageRecipient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserCredentials.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
