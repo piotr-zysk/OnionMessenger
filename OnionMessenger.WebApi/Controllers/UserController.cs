@@ -4,6 +4,9 @@ using OnionMessenger.Logic;
 using OnionMessenger.Domains;
 using OnionMessenger.WebApi.Filters;
 using OnionMessenger.WebApi.ViewModels;
+using System.Collections.Generic;
+using System.Web.Http.ModelBinding;
+using System.Linq;
 
 namespace OnionMessenger.WebApi.Controllers
 {
@@ -37,8 +40,19 @@ namespace OnionMessenger.WebApi.Controllers
         [HttpPost]
         public IHttpActionResult Register([FromBody]User value)
         {
-            var success = _userLogic.Register(value);
+            if (!ModelState.IsValid)
+            {
+                string errorMessages = string.Join("; ", ModelState.Values
+                                        .SelectMany(x => x.Errors)
+                                        .Select(x => x.ErrorMessage));
 
+                return BadRequest(errorMessages);
+                    
+            }
+
+
+            var success = _userLogic.Register(value);
+            
             if (success)
             {
                 /*
