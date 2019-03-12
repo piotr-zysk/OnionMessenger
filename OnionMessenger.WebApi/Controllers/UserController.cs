@@ -38,7 +38,7 @@ namespace OnionMessenger.WebApi.Controllers
 
         [Route("api/user/register")]
         [HttpPost]
-        public IHttpActionResult Register([FromBody]User value)
+        public IHttpActionResult Register([FromBody]UserToRegister value)
         {
             if (!ModelState.IsValid)
             {
@@ -50,8 +50,9 @@ namespace OnionMessenger.WebApi.Controllers
                     
             }
 
+            var user = _mapper.Map<User>(value);
 
-            var success = _userLogic.Register(value);
+            var success = _userLogic.Register(user);
             
             if (success)
             {

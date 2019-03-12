@@ -6,6 +6,7 @@ namespace OnionMessenger.Domains
 {
     public class User : BaseModel
     {
+
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -15,8 +16,9 @@ namespace OnionMessenger.Domains
         public string Login { get; set; }
         [Required]
         public string Password { get; set; }
-        [Range(10, 100, ErrorMessage = "Value for {0} must be between {1} and {2}")]
+        
         public byte Age { get; set; }
         public ICollection<Message> Messages { get; set; }
+
     }
 }
