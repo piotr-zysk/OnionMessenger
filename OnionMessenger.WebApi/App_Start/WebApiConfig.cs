@@ -1,8 +1,4 @@
-﻿using FluentValidation.WebApi;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace OnionMessenger.WebApi
 {
@@ -22,7 +18,6 @@ namespace OnionMessenger.WebApi
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            FluentValidationModelValidatorProvider.Configure(config);
         }
                 
     }

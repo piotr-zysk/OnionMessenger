@@ -222,6 +222,7 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutofacModules\AutomapperModule.cs" />
     <Compile Include="App_Start\AutofacModules\ControllersModule.cs" />
+    <Compile Include="App_Start\AutofacModules\FluentValidationModule.cs" />
     <Compile Include="App_Start\AutofacModules\LogicModule.cs" />
     <Compile Include="App_Start\AutofacModules\DataAccessModule.cs" />
     <Compile Include="App_Start\AutofacModules\InterceptorsModule.cs" />
@@ -273,6 +274,7 @@
     <Compile Include="Infrastructure\Interceptors\LogInterceptor.cs" />
     <Compile Include="Mappers\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\AutofacValidatorFactory.cs" />
     <Compile Include="ViewModels\UserToRegister.cs" />
     <Compile Include="ViewModels\UserRegistered.cs" />
   </ItemGroup>

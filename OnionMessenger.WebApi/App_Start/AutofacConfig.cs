@@ -14,6 +14,7 @@ namespace OnionMessenger.WebApi.App_Start
 
             //builder.RegisterType<SimpleHash>().AsImplementedInterfaces();
 
+            
             // Get your HttpConfiguration.
             var config = GlobalConfiguration.Configuration;
 

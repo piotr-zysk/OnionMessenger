@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using FluentValidation;
-using FluentValidation.Attributes;
-
+﻿using FluentValidation;
 
 namespace OnionMessenger.WebApi.ViewModels
 {
-    [Validator(typeof(UserToRegisterValidator))]
     public class UserToRegister
     {        
 
