@@ -7,6 +7,7 @@ using OnionMessenger.WebApi.ViewModels;
 using System.Collections.Generic;
 using System.Web.Http.ModelBinding;
 using System.Linq;
+using System.Web.Http.Results;
 
 namespace OnionMessenger.WebApi.Controllers
 {
@@ -52,26 +53,26 @@ namespace OnionMessenger.WebApi.Controllers
 
             var user = _mapper.Map<User>(value);
 
-            var success = _userLogic.Register(user);
-            
-            if (success)
+            user = _userLogic.Register(user);
+
+            if (user.Id > 0)
             {
                 /*
                 var userRegistered = new UserRegistered()
                 {
                     Title = "User registered successfully.",
-                    Id = value.Id,
+                   // Id = value.Id,
                     Login = value.Login,
                     FirstName = value.FirstName,
                     LastName=value.LastName
                 };
                 */
 
-                var userRegistered = _mapper.Map<UserRegistered>(value);
-                return Ok(userRegistered);
+                var userRegistered = _mapper.Map<UserRegistered>(user);
+                return Created("", userRegistered);  //dodaj uri                    
             }
             else
-                return BadRequest("User registration failed. Login already exists.");
+                return StatusCode(System.Net.HttpStatusCode.InternalServerError);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace OnionMessenger.WebApi.Mappers
     {
         public UserProfile()
         {
-            CreateMap< User, UserRegistered > ()
+            CreateMap<User, UserRegistered>()
                 .ForMember(dest=>dest.Title, opt=>opt.MapFrom<string>(src => "User registered successfully"));
 
             CreateMap<UserToRegister, User>();

@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace OnionMessenger.WebApi.ViewModels
+﻿namespace OnionMessenger.WebApi.ViewModels
 {
     public class UserToRegister
     {        
@@ -14,17 +12,5 @@ namespace OnionMessenger.WebApi.ViewModels
         public string Password { get; set; }
 
         public int Age { get; set; }
-    }
-
-    public class UserToRegisterValidator : AbstractValidator<UserToRegister>
-    {
-        public UserToRegisterValidator()
-        {            
-            RuleFor(x => x.FirstName).NotEmpty();
-            RuleFor(x => x.LastName).NotEmpty().WithMessage("Last Name cannot be empty");
-            RuleFor(x => x.Login).NotNull().Length(4, 10);
-            RuleFor(x => x.Password).NotNull().Length(6, 20);
-            RuleFor(x => x.Age).InclusiveBetween(10, 99);
-        }
-    }
+    }    
 }

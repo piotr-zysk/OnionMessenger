@@ -25,22 +25,14 @@ namespace OnionMessenger.Logic
             return _userRepository.GetByLogin(login);
         }
 
-        public bool Register(User user)
-        {
-            bool success = false;
-
-            var ExistingUser = _userRepository.GetByLogin(user.Login);
-
-            if (ExistingUser == null)
-            {
-                user.Password = PasswordHash.Encrypt(user.Password);
+        public User Register(User user)
+        {            
+            user.Password = PasswordHash.Encrypt(user.Password);
                 
-                _userRepository.Add(user);
-                _userRepository.SaveChanges();
-                success = true;
-            }
-
-            return success;    
+            _userRepository.Add(user);
+            _userRepository.SaveChanges();
+         
+            return user;    
             
         }
 

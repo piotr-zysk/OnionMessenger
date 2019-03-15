@@ -13,8 +13,8 @@ namespace OnionMessenger.WebApi.App_Start.AutofacModules
         {
             builder.RegisterAssemblyTypes(typeof(WebApiApplication).Assembly)
                 .Where(t => t.Name.EndsWith("Validator"))
-                .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+                .AsImplementedInterfaces();
+                
 
             builder.RegisterType<FluentValidationModelValidatorProvider>().As<ModelValidatorProvider>();
 

@@ -275,6 +275,7 @@
     <Compile Include="Mappers\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\AutofacValidatorFactory.cs" />
+    <Compile Include="Validators\UserToRegisterValidator.cs" />
     <Compile Include="ViewModels\UserToRegister.cs" />
     <Compile Include="ViewModels\UserRegistered.cs" />
   </ItemGroup>

@@ -9,7 +9,7 @@ namespace OnionMessenger.WebApi.ViewModels
     {
         public string  Title { get; set; }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         public string FirstName { get; set; }
 

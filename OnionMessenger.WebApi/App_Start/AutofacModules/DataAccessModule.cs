@@ -14,14 +14,16 @@ namespace OnionMessenger.WebApi.App_Start.AutofacModules
         {
             builder.RegisterType<OMDBContext>()
                 //.OnActivated(d => d.Instance.UserName = HttpContext.Current?.User?.Identity?.Name)
-                .InstancePerRequest();
+                //.InstancePerRequest();
+                .InstancePerLifetimeScope();
 
-            
             builder.RegisterAssemblyTypes(typeof(MessageRepository).Assembly)
                 .Where(t => t.Name.EndsWith("Repository"))
                 .AsImplementedInterfaces()
                 .EnableInterfaceInterceptors()   // enable interceptor for those particular types
-                .InterceptedBy(typeof(LogInterceptor));  // connect interceptor
+                .InterceptedBy(typeof(LogInterceptor))
+                .InstancePerLifetimeScope(); 
+                //.InstancePerRequest();  // connect interceptor
                 //.InterceptedBy(typeof(PollyInterceptor));
         }
     }
