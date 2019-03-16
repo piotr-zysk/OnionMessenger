@@ -13,9 +13,6 @@ namespace OnionMessenger.DataAccess.Repositories
         {
         }
 
-        public string Test()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

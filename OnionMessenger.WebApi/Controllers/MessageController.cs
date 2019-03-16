@@ -22,9 +22,9 @@ namespace OnionMessenger.WebApi.Controllers
        
         public IEnumerable<string> Get()
         {
-            string test = PasswordHash.Encrypt(_messageRepository.Test());
-            string token_user = User.Identity.Name;
-            return new string[] { "value1", "value2", token_user, test };
+            //string test = PasswordHash.Encrypt(_messageRepository.Test());
+            //string token_user = User.Identity.Name;
+            return new string[] { "value1", "value2"};
         }
 
         // GET api/values/5

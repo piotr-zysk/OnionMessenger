@@ -53,7 +53,7 @@ namespace OnionMessenger.WebApi.Controllers
 
             var user = _mapper.Map<User>(value);
 
-            user = _userLogic.Register(user);
+            Result result = _userLogic.Register(user);
 
             if (user.Id > 0)
             {

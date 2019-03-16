@@ -3,6 +3,7 @@ using OnionMessenger.Domains;
 using OnionMessenger.Logic.Repositories;
 using OnionMessenger.Infrastructure;
 
+
 namespace OnionMessenger.Logic
 {
     public class UserLogic : IUserLogic
@@ -25,14 +26,14 @@ namespace OnionMessenger.Logic
             return _userRepository.GetByLogin(login);
         }
 
-        public User Register(User user)
+        public Result Register(User user)
         {            
             user.Password = PasswordHash.Encrypt(user.Password);
                 
             _userRepository.Add(user);
             _userRepository.SaveChanges();
-         
-            return user;    
+
+            return Result.Ok<User>(user); 
             
         }
 

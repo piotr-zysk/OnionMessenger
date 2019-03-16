@@ -9,7 +9,7 @@ namespace OnionMessenger.Logic
 {
     public interface IUserLogic
     {
-        User Register(User User);
+        Result Register(User User);
 
         bool ValidateCredentials(UserCredentials userCredentials);
 
