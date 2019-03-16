@@ -1,66 +1,21 @@
 ﻿using OnionMessenger.DataAccess.DB;
 using OnionMessenger.Domains;
 using OnionMessenger.Logic.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace OnionMessenger.DataAccess.Repositories
 {
-    class UserRepository : IUserRepository
+    public class UserRepository : Repository<User>, IUserRepository
     {
-        OMDBContext _dataContext;
-
-        public UserRepository(OMDBContext dataConetxt)
+        public UserRepository(OMDBContext dataConetxt) : base(dataConetxt)
         {
-            this._dataContext = dataConetxt;
-        }
-
-
-        public void Add(User entity)
-        {
-            _dataContext.Set<User>().Add(entity);
-        }
-
-        public void Delete(User entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<User> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<User> GetAllActive()
-        {
-            throw new NotImplementedException();
-        }
-
-        public User GetById(int id)
-        {
-            return _dataContext.Set<User>().FirstOrDefault(e => e.Id == id);
         }
 
         public User GetByLogin(string login)
         {
-            return _dataContext.Set<User>().FirstOrDefault(e => e.Login == login);
+            return base._dataContext.Set<User>().FirstOrDefault(e => e.Login == login);
         }
 
-        public void SaveChanges()
-        {
-            _dataContext.SaveChanges();
-        }
-
-        public void Update(User entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }
