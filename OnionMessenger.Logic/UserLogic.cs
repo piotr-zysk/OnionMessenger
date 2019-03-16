@@ -2,7 +2,7 @@
 using OnionMessenger.Domains;
 using OnionMessenger.Logic.Repositories;
 using OnionMessenger.Infrastructure;
-
+using System.Collections.Generic;
 
 namespace OnionMessenger.Logic
 {
@@ -26,14 +26,28 @@ namespace OnionMessenger.Logic
             return _userRepository.GetByLogin(login);
         }
 
-        public Result Register(User user)
+        public Result<User> Register(User user)
         {            
             user.Password = PasswordHash.Encrypt(user.Password);
-                
-            _userRepository.Add(user);
-            _userRepository.SaveChanges();
 
-            return Result.Ok<User>(user); 
+            var result = new Result();
+
+            try
+            {
+                _userRepository.Add(user);
+                _userRepository.SaveChanges();
+                result.Success = true;
+            }
+            catch(Exception e)
+            {
+                result.Success = false;
+                var error = new ErrorMessage("dbcontext", e.Message);
+                result.Errors = new List<ErrorMessage>() { error };
+            }
+
+
+            if (result.Success) return Result.Ok<User>(user);
+            else return Result.Failure<User>(result.Errors);
             
         }
 

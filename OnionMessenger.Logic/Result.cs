@@ -9,6 +9,8 @@ namespace OnionMessenger.Logic
 
         public IEnumerable<ErrorMessage> Errors { get; set; }
 
+        //public T Value { get; set; }
+
         public static Result<T> Ok<T>(T value)
         {
             return new Result<T>()
@@ -46,15 +48,23 @@ namespace OnionMessenger.Logic
 
     }
 
+    
     public class Result<T> : Result
     {
         public T Value { get; set; }
     }
+    
 
     public class ErrorMessage
     {
         public string PropertyName { get; set; }
 
         public string Message { get; set; }
+
+        public ErrorMessage(string propertyName, string message)
+        {
+            this.PropertyName = propertyName;
+            this.Message = message;
+        }
     }
 }

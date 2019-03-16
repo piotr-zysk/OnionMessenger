@@ -53,9 +53,9 @@ namespace OnionMessenger.WebApi.Controllers
 
             var user = _mapper.Map<User>(value);
 
-            Result result = _userLogic.Register(user);
+            var result = _userLogic.Register(user);
 
-            if (user.Id > 0)
+            if (result.Success)
             {
                 /*
                 var userRegistered = new UserRegistered()
@@ -68,7 +68,7 @@ namespace OnionMessenger.WebApi.Controllers
                 };
                 */
 
-                var userRegistered = _mapper.Map<UserRegistered>(user);
+                var userRegistered = _mapper.Map<UserRegistered>(result.Value);
                 return Created("", userRegistered);  //dodaj uri                    
             }
             else
