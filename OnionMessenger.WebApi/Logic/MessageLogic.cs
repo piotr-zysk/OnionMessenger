@@ -5,6 +5,7 @@ using OnionMessenger.Domains;
 using OnionMessenger.Logic;
 using OnionMessenger.Logic.DTO;
 using OnionMessenger.Logic.Repositories;
+using OnionMessenger.WebApi.ViewModels;
 
 namespace OnionMessenger.Webapi.Logic
 {
@@ -19,9 +20,19 @@ namespace OnionMessenger.Webapi.Logic
             this._mapper = mapper;
         }
 
+        public IEnumerable<Message> GetAllByRecipient(int Id)
+        {
+            return _messageRepository.GetAllByRecipient(Id);
+        }
+
         public Message GetById(int id)
         {
             return _messageRepository.GetById(id);
+        }
+
+        public IEnumerable<UserDTO> GetRecipients(int messageId)
+        {
+            return _mapper.Map<IEnumerable<UserDTO>>(_messageRepository.GetRecipients(messageId));
         }
 
         public Result<MessageDTO> Send(MessageDTO messageDTO)

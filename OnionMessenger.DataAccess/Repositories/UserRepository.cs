@@ -13,7 +13,7 @@ namespace OnionMessenger.DataAccess.Repositories
 
         public User GetByLogin(string login)
         {
-            return base._dataContext.Set<User>().FirstOrDefault(e => e.Login == login);
+            return _dataContext.Set<User>().FirstOrDefault(e => e.Login == login);
         }
 
     }

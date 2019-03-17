@@ -53,6 +53,20 @@ namespace OnionMessenger.WebApi.Controllers
         {
         }
 
+        [Route("api/message/getbyrecipient/{id}")]
+        [HttpGet]
+        public IHttpActionResult GetByRecipient(int Id)
+        {
+            return Ok<IEnumerable<Message>>(_messageLogic.GetAllByRecipient(Id));
+        }
+
+        [Route("api/message/getrecipients/{messageId}")]
+        [HttpGet]
+        public IHttpActionResult GetRecipients(int messageId)
+        {
+            return Ok<IEnumerable<UserDTO>>(_messageLogic.GetRecipients(messageId));
+        }
+
         [Route("api/message/send")]
         [HttpPost]
         public IHttpActionResult Send([FromBody]MessageInput value)

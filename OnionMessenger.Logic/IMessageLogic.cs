@@ -1,5 +1,6 @@
 ﻿using OnionMessenger.Domains;
 using OnionMessenger.Logic.DTO;
+using System.Collections.Generic;
 
 namespace OnionMessenger.Logic
 {
@@ -7,7 +8,11 @@ namespace OnionMessenger.Logic
     {
         Result<MessageDTO> Send(MessageDTO messageDTO);        
 
-        Message GetById(int id);       
+        Message GetById(int id);
+
+        IEnumerable<Message> GetAllByRecipient(int Id);
+
+        IEnumerable<UserDTO> GetRecipients(int messageId);
 
     }
 }

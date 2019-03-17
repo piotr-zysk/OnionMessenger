@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\MessageDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="IMessageLogic.cs" />
     <Compile Include="IUserLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
