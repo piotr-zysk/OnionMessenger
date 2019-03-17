@@ -5,6 +5,7 @@ using OnionMessenger.DataAccess.Repositories;
 using OnionMessenger.WebApi.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OnionMessenger.WebApi.Validators
 {
@@ -25,33 +26,38 @@ namespace OnionMessenger.WebApi.Validators
                                  
             RuleFor(x => x.Priority).NotNull().Must(property => { if (property <= 10) return true; else return false; }).WithMessage("Acceptable values of Priority: 1 - 10");
  
-            RuleFor(x => x.UserId).Must((root, property, context) =>
-            {
-                User user = userRepository.GetById(property);
-                if (user == null)
-                    return false;
-                else
-                    return true;
-            }).WithMessage("User does not exist");
+            RuleFor(x => x.UserId).Must(UserExists).WithMessage("User does not exist");
 
-            RuleFor(x => x.Recipients).Must((root, property, context) =>
+            RuleFor(x => x.Recipients).Custom((list, context) =>
             {
                 var nonExistingRecipients = new List<int>();
                 User user;
-                foreach (var i in property)
+                foreach (var i in list)
                 {
                     user = userRepository.GetById(i);
                     if (user == null) nonExistingRecipients.Add(i);
                 }
 
-                if (nonExistingRecipients.Count == 0) return true;
-                else return false;
+                if (nonExistingRecipients.Count > 0)
+                    context.AddFailure($"{string.Join(",", nonExistingRecipients)} - recipients do not exist.");
                 
-            }).WithMessage("Recipient does not exist");
+            });
+                
+            
 
             //zmien na custom, i do WithMessage dodaj wszystkie znalezione zle wartosci Recipientow
             //przenies walidacje bazy do osobnych fukcji
             // zaprogramouj dopisywanie recipientow do bazy
+
+        }
+
+        private bool UserExists(int userId)
+        {
+            User user = userRepository.GetById(userId);
+            if (user == null)
+                return false;
+            else
+                return true;
 
         }
     }
