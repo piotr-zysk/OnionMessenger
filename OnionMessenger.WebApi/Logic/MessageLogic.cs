@@ -21,7 +21,7 @@ namespace OnionMessenger.Webapi.Logic
 
         public Message GetById(int id)
         {
-            throw new NotImplementedException();
+            return _messageRepository.GetById(id);
         }
 
         public Result<MessageDTO> Send(MessageDTO messageDTO)

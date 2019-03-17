@@ -6,6 +6,7 @@ using OnionMessenger.Logic;
 using AutoMapper;
 using OnionMessenger.WebApi.ViewModels;
 using OnionMessenger.Logic.DTO;
+using OnionMessenger.Domains;
 
 namespace OnionMessenger.WebApi.Controllers
 {
@@ -31,10 +32,10 @@ namespace OnionMessenger.WebApi.Controllers
             return new string[] { "value1", "value2"};
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        // GET api/message/{id}
+        public Message Get(int id)
         {
-            return "value";
+            return _messageLogic.GetById(id);
         }
 
         // POST api/values

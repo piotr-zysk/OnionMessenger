@@ -17,5 +17,15 @@ namespace OnionMessenger.DataAccess.Repositories
         {
             _dataContext.Set<MessageRecipient>().Add(messageRecipient);
         }
+
+        public IEnumerable<Message> GetAllByRecipient(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> GetRecipients(int messageId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
