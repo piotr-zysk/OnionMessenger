@@ -44,11 +44,6 @@ namespace OnionMessenger.WebApi.Validators
             });
                 
             
-
-            //zmien na custom, i do WithMessage dodaj wszystkie znalezione zle wartosci Recipientow
-            //przenies walidacje bazy do osobnych fukcji
-            // zaprogramouj dopisywanie recipientow do bazy
-
         }
 
         private bool UserExists(int userId)

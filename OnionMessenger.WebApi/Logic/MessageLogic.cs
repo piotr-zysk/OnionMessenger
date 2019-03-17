@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoMapper;
 using OnionMessenger.Domains;
+using OnionMessenger.Logic;
+using OnionMessenger.Logic.DTO;
 using OnionMessenger.Logic.Repositories;
 
-namespace OnionMessenger.Logic
+namespace OnionMessenger.Webapi.Logic
 {
     class MessageLogic : IMessageLogic
     {
         IMessageRepository _messageRepository;
+        IMapper _mapper;
 
-        public MessageLogic(IMessageRepository messageRepository)
+        public MessageLogic(IMessageRepository messageRepository, IMapper mapper)
         {
             this._messageRepository = messageRepository;
+            this._mapper = mapper;
         }
 
         public Message GetById(int id)
@@ -22,13 +24,18 @@ namespace OnionMessenger.Logic
             throw new NotImplementedException();
         }
 
-        public Result<Message> Send(Message message)
+        public Result<MessageDTO> Send(MessageDTO messageDTO)
         {
             var result = new Result();
 
+            Message message = _mapper.Map<Message>(messageDTO);
+
+                       
             try
             {
                 _messageRepository.Add(message);
+                foreach (int i in messageDTO.Recipients)
+                    _messageRepository.AddRecipient(new MessageRecipient { MessageId = message.Id, UserId = i, Status = 0 });
                 _messageRepository.SaveChanges();
                 result.Success = true;
             }
@@ -40,8 +47,8 @@ namespace OnionMessenger.Logic
             }
 
 
-            if (result.Success) return Result.Ok<Message>(message);
-            else return Result.Failure<Message>(result.Errors);
+            if (result.Success) return Result.Ok<MessageDTO>(messageDTO);
+            else return Result.Failure<MessageDTO>(result.Errors);
         }
     }
 }

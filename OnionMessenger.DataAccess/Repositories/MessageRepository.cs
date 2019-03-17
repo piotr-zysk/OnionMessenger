@@ -13,6 +13,9 @@ namespace OnionMessenger.DataAccess.Repositories
         {
         }
 
-
+        public void AddRecipient(MessageRecipient messageRecipient)
+        {
+            _dataContext.Set<MessageRecipient>().Add(messageRecipient);
+        }
     }
 }

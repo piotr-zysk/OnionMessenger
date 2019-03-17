@@ -272,6 +272,8 @@
     </Compile>
     <Compile Include="Helpers\JwtManager.cs" />
     <Compile Include="Infrastructure\Interceptors\LogInterceptor.cs" />
+    <Compile Include="Logic\MessageLogic.cs" />
+    <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Mappers\MessageProfile.cs" />
     <Compile Include="Mappers\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

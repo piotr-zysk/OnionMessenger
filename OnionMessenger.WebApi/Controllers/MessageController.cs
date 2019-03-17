@@ -1,13 +1,11 @@
-﻿using OnionMessenger.Logic.Repositories;
-using OnionMessenger.WebApi.Filters;
+﻿using OnionMessenger.WebApi.Filters;
 using System.Collections.Generic;
 using System.Web.Http;
-using OnionMessenger.Infrastructure;
-using OnionMessenger.Domains;
 using System.Linq;
 using OnionMessenger.Logic;
 using AutoMapper;
 using OnionMessenger.WebApi.ViewModels;
+using OnionMessenger.Logic.DTO;
 
 namespace OnionMessenger.WebApi.Controllers
 {
@@ -68,9 +66,9 @@ namespace OnionMessenger.WebApi.Controllers
 
             }
 
-            var message = _mapper.Map<Message>(value);
+            var messageDTO = _mapper.Map<MessageDTO>(value);
 
-            var result = _messageLogic.Send(message);
+            var result = _messageLogic.Send(messageDTO);
 
             if (result.Success)
             {

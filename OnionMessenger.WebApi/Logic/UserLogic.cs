@@ -3,8 +3,9 @@ using OnionMessenger.Domains;
 using OnionMessenger.Logic.Repositories;
 using OnionMessenger.Infrastructure;
 using System.Collections.Generic;
+using OnionMessenger.Logic;
 
-namespace OnionMessenger.Logic
+namespace OnionMessenger.Webapi.Logic
 {
     public class UserLogic : IUserLogic
     {

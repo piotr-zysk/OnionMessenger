@@ -5,6 +5,6 @@ namespace OnionMessenger.Logic.Repositories
 {
     public interface IMessageRepository : IRepository<Message>
     {
-        
+        void AddRecipient(MessageRecipient messageRecipient);
     }
 }
