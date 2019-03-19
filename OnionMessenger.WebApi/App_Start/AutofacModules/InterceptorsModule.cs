@@ -11,10 +11,11 @@ namespace AutofacInterceptors.App_Start.AutofacModules
             builder.RegisterType<LogInterceptor>()
                 .SingleInstance();
 
-            /*
+            
             builder.RegisterType<PollyInterceptor>()
                 .SingleInstance();
 
+            /*
             builder.RegisterType<CacheInterceptor>()
                 .SingleInstance();
 

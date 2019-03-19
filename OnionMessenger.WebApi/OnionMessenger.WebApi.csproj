@@ -100,6 +100,9 @@
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Polly.7.1.0\lib\netstandard2.0\Polly.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
@@ -272,6 +275,7 @@
     </Compile>
     <Compile Include="Helpers\JwtManager.cs" />
     <Compile Include="Infrastructure\Interceptors\LogInterceptor.cs" />
+    <Compile Include="Infrastructure\Interceptors\PollyInterceptor.cs" />
     <Compile Include="Logic\MessageLogic.cs" />
     <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Mappers\MessageProfile.cs" />

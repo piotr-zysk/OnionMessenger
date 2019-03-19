@@ -22,9 +22,10 @@ namespace OnionMessenger.WebApi.App_Start.AutofacModules
                 .AsImplementedInterfaces()
                 .EnableInterfaceInterceptors()   // enable interceptor for those particular types
                 .InterceptedBy(typeof(LogInterceptor))
+                .InterceptedBy(typeof(PollyInterceptor))
                 .InstancePerLifetimeScope(); 
                 //.InstancePerRequest();  // connect interceptor
-                //.InterceptedBy(typeof(PollyInterceptor));
+                
         }
     }
 }
