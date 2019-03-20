@@ -14,9 +14,9 @@ namespace OnionMessenger.WebApi.App_Start.AutofacModules
             builder.RegisterAssemblyTypes(typeof(UserLogic).Assembly)
                 .Where(t => t.Name.EndsWith("Logic"))
                 .AsImplementedInterfaces()
-                .EnableInterfaceInterceptors()   // enable interceptor for those particular types
+                .EnableInterfaceInterceptors()   // enable interceptor for those particular types                
+                .InterceptedBy(typeof(CacheInterceptor))
                 .InterceptedBy(typeof(LogInterceptor));  // connect interceptor
-                //.InterceptedBy(typeof(PollyInterceptor));
         }
     }
 }

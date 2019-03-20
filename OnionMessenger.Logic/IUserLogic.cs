@@ -17,5 +17,9 @@ namespace OnionMessenger.Logic
 
         User GetByLogin(string login);
 
+        User Update(User user);
+
+        void Delete(int id); 
+
     }
 }

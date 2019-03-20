@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using OnionMessenger.WebApi.Infrastructure.Interceptors;
-
+using OnionMessenger.WebApi.Services;
 
 namespace AutofacInterceptors.App_Start.AutofacModules
 {
@@ -15,14 +15,14 @@ namespace AutofacInterceptors.App_Start.AutofacModules
             builder.RegisterType<PollyInterceptor>()
                 .SingleInstance();
 
-            /*
+            
             builder.RegisterType<CacheInterceptor>()
                 .SingleInstance();
 
             builder.RegisterType<CacheService>()
                 .AsImplementedInterfaces()
                 .SingleInstance();
-            */
+            
         }
     }
 }

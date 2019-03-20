@@ -16,6 +16,10 @@ namespace OnionMessenger.Webapi.Logic
             this._userRepository = userRepository;
         }
 
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
 
         public User GetById(int id)
         {
@@ -50,6 +54,11 @@ namespace OnionMessenger.Webapi.Logic
             if (result.Success) return Result.Ok<User>(user);
             else return Result.Failure<User>(result.Errors);
             
+        }
+
+        public User Update(User user)
+        {
+            throw new NotImplementedException();
         }
 
         public bool ValidateCredentials(UserCredentials userCredentials)
