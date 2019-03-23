@@ -1,13 +1,14 @@
 ﻿using Xunit;
 using OnionMessenger.WebApi.Logic;
 
+
 namespace OnionMessenger.UnitTests
 {
-    public class TestClass
+    public class TestLogicShould
     {
        
         TestLogic tl;
-        public TestClass()
+        public TestLogicShould()
         {
             this.tl = new TestLogic();
         }
@@ -26,7 +27,7 @@ namespace OnionMessenger.UnitTests
         public void FailingTest()
         {
             
-            Assert.True(tl.Add(2, 3)==4);
+            Assert.True(tl.Add(2, 3)==5);
         }
 
 
