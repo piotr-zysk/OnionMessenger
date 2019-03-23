@@ -359,6 +359,7 @@
     <Compile Include="Infrastructure\Interceptors\LogInterceptor.cs" />
     <Compile Include="Infrastructure\Interceptors\PollyInterceptor.cs" />
     <Compile Include="Logic\MessageLogic.cs" />
+    <Compile Include="Logic\TestLogic.cs" />
     <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Mappers\MessageProfile.cs" />
     <Compile Include="Mappers\UserProfile.cs" />

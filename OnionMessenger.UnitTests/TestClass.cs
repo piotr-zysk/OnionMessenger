@@ -1,27 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using Xunit;
+﻿using Xunit;
+using OnionMessenger.WebApi.Logic;
 
 namespace OnionMessenger.UnitTests
 {
     public class TestClass
     {
-        [Fact]
-        public void PassingTest()
+       
+        TestLogic tl;
+        public TestClass()
         {
-            Assert.Equal(4, Add(2, 2));
-            Assert.Equal(3, Add(1, 2));
+            this.tl = new TestLogic();
+        }
+      
+
+        [Fact]
+        [Trait("Category","Category1")]
+        public void PassingTest()
+        {           
+           
+            Assert.Equal(4, tl.Add(2, 2));
+            //Assert.Equal(3, tl.Add(1, 5));
         }
 
         [Fact]
         public void FailingTest()
         {
-            Assert.Equal(5, Add(3, 2));
+            
+            Assert.True(tl.Add(2, 3)==4);
         }
 
-        private int Add(int v1, int v2)
-        {
-            return v1 + v2;
-        }
+
     }
 }

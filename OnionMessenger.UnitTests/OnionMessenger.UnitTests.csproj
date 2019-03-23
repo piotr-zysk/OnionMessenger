@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OnionMessenger.UnitTests</RootNamespace>
     <AssemblyName>OnionMessenger.UnitTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
@@ -75,6 +75,28 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnionMessanger.Domains\OnionMessanger.Domains.csproj">
+      <Project>{a81a9002-3059-492b-8a99-f0719d19ac79}</Project>
+      <Name>OnionMessanger.Domains</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnionMessenger.DataAccess\OnionMessenger.DataAccess.csproj">
+      <Project>{f8e9ba78-52dc-4fb6-a843-fdb9cb4d22ed}</Project>
+      <Name>OnionMessenger.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnionMessenger.Infrastructure\OnionMessenger.Infrastructure.csproj">
+      <Project>{a6871ff0-8956-4866-a192-c3a28160d3c4}</Project>
+      <Name>OnionMessenger.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnionMessenger.Logic\OnionMessenger.Logic.csproj">
+      <Project>{07db36ad-35e8-4b93-89b7-2d4f40de689b}</Project>
+      <Name>OnionMessenger.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnionMessenger.WebApi\OnionMessenger.WebApi.csproj">
+      <Project>{8c702404-8c5c-4577-af91-9f2b397f87c6}</Project>
+      <Name>OnionMessenger.WebApi</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
