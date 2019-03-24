@@ -1,7 +1,9 @@
 ﻿using OnionMessenger.DataAccess.DB;
 using OnionMessenger.Domains;
 using OnionMessenger.Logic.Repositories;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace OnionMessenger.DataAccess.Repositories
 {
@@ -11,9 +13,16 @@ namespace OnionMessenger.DataAccess.Repositories
         {
         }
 
+        public async Task<User> GetByLoginAsync(string login)
+        {   
+            User user = await _dataContext.Set<User>().FirstOrDefaultAsync(e => e.Login == login);
+            return user;
+        }
+
         public User GetByLogin(string login)
         {
-            return _dataContext.Set<User>().FirstOrDefault(e => e.Login == login);
+            User user = _dataContext.Set<User>().FirstOrDefault(e => e.Login == login);
+            return user;
         }
 
     }

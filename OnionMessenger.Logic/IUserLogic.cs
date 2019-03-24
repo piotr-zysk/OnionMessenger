@@ -15,7 +15,9 @@ namespace OnionMessenger.Logic
 
         User GetById(int id);
 
-        User GetByLogin(string login);
+        Task<User> GetByIdAsync(int id);
+
+        Task<User> GetByLoginAsync(string login);
 
         User Update(User user);
 

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Web.Http.ModelBinding;
 using System.Linq;
 using System.Web.Http.Results;
+using System.Threading.Tasks;
 
 namespace OnionMessenger.WebApi.Controllers
 {
@@ -25,16 +26,16 @@ namespace OnionMessenger.WebApi.Controllers
 
         [Route("api/user/get/{id}")]
         [HttpGet]
-        public User Get(int id)
+        public async Task<User> Get(int id)
         {
-            return _userLogic.GetById(id);
+            return await _userLogic.GetByIdAsync(id);
         }
 
         [Route("api/user/getbylogin/{login}")]
         [HttpGet]
-        public User GetByLogin(string login)
+        public async Task<User> GetByLoginAsync(string login)
         {
-            return _userLogic.GetByLogin(login);
+            return await _userLogic.GetByLoginAsync(login);
         }
 
         [Route("api/user/register")]

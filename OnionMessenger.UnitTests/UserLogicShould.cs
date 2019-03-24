@@ -26,7 +26,7 @@ namespace OnionMessenger.UnitTests
         
         public void PassingTest()
         {
-            var user = ul.GetByLogin("user2");           
+            var user = ul.GetByLoginAsync("user2");           
 
 
             Assert.Equal(2, user?.Id);            

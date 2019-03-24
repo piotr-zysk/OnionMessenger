@@ -30,7 +30,7 @@ namespace OnionMessenger.WebApi.Infrastructure.Interceptors
                 return;
             }
 
-            var isGetById = invocation.Method.Name == nameof(IUserLogic.GetById);
+            var isGetById = invocation.Method.Name == nameof(IUserLogic.GetByIdAsync);
 
             if (isGetById)
             {

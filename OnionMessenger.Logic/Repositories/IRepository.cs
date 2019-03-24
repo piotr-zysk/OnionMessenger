@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using OnionMessenger.Domains;
 
 namespace OnionMessenger.Logic.Repositories
@@ -15,6 +16,8 @@ namespace OnionMessenger.Logic.Repositories
         void Delete(int id);
 
         T GetById(int id);
+
+        Task<T> GetByIdAsync(int id);
 
         IEnumerable<T> GetAllActive();
 

@@ -4,6 +4,8 @@ using OnionMessenger.Logic.Repositories;
 using OnionMessenger.Infrastructure;
 using System.Collections.Generic;
 using OnionMessenger.Logic;
+//using NLog;
+using System.Threading.Tasks;
 
 namespace OnionMessenger.Webapi.Logic
 {
@@ -26,9 +28,17 @@ namespace OnionMessenger.Webapi.Logic
             return _userRepository.GetById(id);
         }
 
-        public User GetByLogin(string login)
+
+        public async Task<User> GetByIdAsync(int id)
         {
-            return _userRepository.GetByLogin(login);
+            return await _userRepository.GetByIdAsync(id);
+        }
+
+        public async Task<User> GetByLoginAsync(string login)
+        {
+            //Logger logger = LogManager.GetCurrentClassLogger();
+            //logger.Info("UserLogic.GetByLoginAsync");
+            return await _userRepository.GetByLoginAsync(login);
         }
 
         public Result<User> Register(User user)
@@ -72,5 +82,7 @@ namespace OnionMessenger.Webapi.Logic
             //if (PasswordHash.Encrypt(password) == UserInDb?.Password) return true;            
             else return false;            
         }
+
+
     }
 }

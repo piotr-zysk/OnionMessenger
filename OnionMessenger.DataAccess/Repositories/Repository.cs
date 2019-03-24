@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using OnionMessenger.DataAccess.DB;
 using OnionMessenger.Domains;
 using OnionMessenger.Logic.Repositories;
@@ -43,6 +45,11 @@ namespace OnionMessenger.DataAccess.Repositories
         public T GetById(int id)
         {
             return _dataContext.Set<T>().FirstOrDefault(e => e.Id == id);
+        }
+
+        public Task<T> GetByIdAsync(int id)
+        {
+            return _dataContext.Set<T>().FirstOrDefaultAsync(e => e.Id == id);
         }
 
         public void SaveChanges()
