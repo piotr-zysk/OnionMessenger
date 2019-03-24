@@ -11,11 +11,13 @@ namespace OnionMessenger.Webapi.Logic
 {
     public class UserLogic : IUserLogic
     {
-        IUserRepository _userRepository;
+        private Lazy<IUserRepository> repository;
 
-        public UserLogic(IUserRepository userRepository)
+        protected IUserRepository Repository { get => repository.Value; }
+
+        public UserLogic(Lazy<IUserRepository> userRepository)
         {
-            this._userRepository = userRepository;
+            this.repository = userRepository;
         }
 
         public void Delete(int id)
@@ -25,20 +27,20 @@ namespace OnionMessenger.Webapi.Logic
 
         public User GetById(int id)
         {
-            return _userRepository.GetById(id);
+            return Repository.GetById(id);
         }
 
 
         public async Task<User> GetByIdAsync(int id)
         {
-            return await _userRepository.GetByIdAsync(id);
+            return await Repository.GetByIdAsync(id);
         }
 
         public async Task<User> GetByLoginAsync(string login)
         {
             //Logger logger = LogManager.GetCurrentClassLogger();
             //logger.Info("UserLogic.GetByLoginAsync");
-            return await _userRepository.GetByLoginAsync(login);
+            return await Repository.GetByLoginAsync(login);
         }
 
         public Result<User> Register(User user)
@@ -49,8 +51,8 @@ namespace OnionMessenger.Webapi.Logic
 
             try
             {
-                _userRepository.Add(user);
-                _userRepository.SaveChanges();
+                Repository.Add(user);
+                Repository.SaveChanges();
                 result.Success = true;
             }
             catch(Exception e)
@@ -73,7 +75,7 @@ namespace OnionMessenger.Webapi.Logic
 
         public bool ValidateCredentials(UserCredentials userCredentials)
         {
-            string storedPassword = _userRepository.GetByLogin(userCredentials.Login)?.Password;
+            string storedPassword = Repository.GetByLogin(userCredentials.Login)?.Password;
 
             if (string.IsNullOrEmpty(storedPassword)) return false;
 
