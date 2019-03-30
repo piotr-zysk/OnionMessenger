@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnionMessenger.Domains
 {
@@ -17,7 +17,8 @@ namespace OnionMessenger.Domains
         // https://stackoverflow.com/questions/19554050/entity-framework-6-code-first-default-value
         public DateTime TimeCreated { get; set; }
         [Required]
-        public int UserId { get; set; }
+        [ForeignKey("User")]
+        public int AuthorId { get; set; }
         public User User { get; set; }
         [Required]
         public byte Priority { get; set; }

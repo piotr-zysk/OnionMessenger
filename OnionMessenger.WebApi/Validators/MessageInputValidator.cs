@@ -26,7 +26,7 @@ namespace OnionMessenger.WebApi.Validators
                                  
             RuleFor(x => x.Priority).NotNull().Must(property => { if (property <= 10) return true; else return false; }).WithMessage("Acceptable values of Priority: 1 - 10");
  
-            RuleFor(x => x.UserId).Must(UserExists).WithMessage("User does not exist");
+            RuleFor(x => x.AuthorId).Must(UserExists).WithMessage("User (author) does not exist");
 
             RuleFor(x => x.Recipients).Custom((list, context) =>
             {
