@@ -14,5 +14,9 @@ namespace OnionMessenger.Logic
 
         IEnumerable<UserDTO> GetRecipients(int messageId);
 
+        Result<MessageWithRecpientNamesDTO> GetMessageWithRecipientNames(int messageId);
+
+        Result<MessageDTO> GetMessageWithRecipientIds(int messageId);
+
     }
 }

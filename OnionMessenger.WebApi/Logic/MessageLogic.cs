@@ -30,9 +30,29 @@ namespace OnionMessenger.Webapi.Logic
             return _messageRepository.GetById(id);
         }
 
+        public Result<MessageDTO> GetMessageWithRecipientIds(int messageId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Result<MessageWithRecpientNamesDTO> GetMessageWithRecipientNames(int messageId)
+        {
+            var output = _messageRepository.GetMessageWithRecipientNames(messageId);
+
+            if (output != null)
+                return Result.Ok<MessageWithRecpientNamesDTO>(output);
+            else
+            {
+                var error = new ErrorMessage("dbcontext", "Database Access Error");
+                var errors = new List<ErrorMessage>() { error };
+                return Result.Failure<MessageWithRecpientNamesDTO>(errors);
+            }
+
+        }
+
         public IEnumerable<UserDTO> GetRecipients(int messageId)
         {
-            return _mapper.Map<IEnumerable<UserDTO>>(_messageRepository.GetRecipients(messageId));
+                return _mapper.Map<IEnumerable<UserDTO>>(_messageRepository.GetRecipients(messageId));
         }
 
         public Result<MessageDTO> Send(MessageDTO messageDTO)

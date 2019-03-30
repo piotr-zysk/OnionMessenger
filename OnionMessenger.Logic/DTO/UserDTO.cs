@@ -7,5 +7,7 @@
         public string LastName { get; set; }
 
         public string Login { get; set; }
+
+        public int Id { get; set; }
     }
 }

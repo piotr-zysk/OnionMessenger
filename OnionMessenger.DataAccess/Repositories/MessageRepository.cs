@@ -4,7 +4,7 @@ using OnionMessenger.DataAccess.DB;
 using OnionMessenger.Domains;
 using OnionMessenger.Logic.Repositories;
 using System.Linq;
-
+using OnionMessenger.Logic.DTO;
 
 namespace OnionMessenger.DataAccess.Repositories
 {
@@ -25,6 +25,42 @@ namespace OnionMessenger.DataAccess.Repositories
             var messages = _dataContext.Set<Message>().Join(recipientMessages, m => m.Id, rm => rm.MessageId, (m, rm) => m);
 
             return messages.ToList();
+        }
+
+        public MessageDTO GetMessageWithRecipientIds(int messageID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public MessageWithRecpientNamesDTO GetMessageWithRecipientNames(int messageID)
+        {
+            return _dataContext.Set<Message>().Where(m=>m.Id==messageID)
+                    .GroupJoin(
+                        _dataContext.Set<MessageRecipient>(),
+                        m => m.Id,
+                        mr => mr.MessageId,
+                        (m, mr) => new MessageWithRecpientNamesDTO()
+                        {                            
+                            Title=m.Title,
+                            Content=m.Content,
+                            AuthorId=m.AuthorId,
+                            TimeCreated=m.TimeCreated,
+                            IsActive=m.IsActive,
+                            Priority=m.Priority,
+                            Recipients = mr.Join(
+                                _dataContext.Set<User>(),
+                                mri => mri.UserId,
+                                u => u.Id,
+                                (mri, u) => new UserDTO()
+                                {
+                                    FirstName=u.FirstName,
+                                    LastName=u.LastName,
+                                    Login=u.Login,
+                                    Id=u.Id
+                                }
+                            )
+                        }).FirstOrDefault();
+                
         }
 
         public IEnumerable<User> GetRecipients(int messageId)

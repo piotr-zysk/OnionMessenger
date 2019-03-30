@@ -67,6 +67,20 @@ namespace OnionMessenger.WebApi.Controllers
             return Ok<IEnumerable<UserDTO>>(_messageLogic.GetRecipients(messageId));
         }
 
+        [Route("api/message/withrecipientnames/{messageId}")]
+        [HttpGet]
+        public IHttpActionResult GetMessageWithRecpientNames(int messageId)
+        {
+            var result = _messageLogic.GetMessageWithRecipientNames(messageId);
+
+            if (result.Success)
+                return Ok<MessageWithRecpientNamesDTO>(result.Value);
+            else
+                return StatusCode(System.Net.HttpStatusCode.InternalServerError);
+        }
+
+
+
         [Route("api/message/send")]
         [HttpPost]
         public IHttpActionResult Send([FromBody]MessageInput value)
