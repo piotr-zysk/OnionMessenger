@@ -21,8 +21,8 @@ namespace OnionMessenger.DataAccess.Repositories
 
         public IEnumerable<Message> GetAllByRecipient(int Id)
         {
-            var recipientMessages = _dataContext.Set<MessageRecipient>().Where(mr => mr.UserId == Id);
-            var messages = _dataContext.Set<Message>().Join(recipientMessages, m => m.Id, rm => rm.MessageId, (m, rm) => m);
+            IQueryable<MessageRecipient> recipientMessages = _dataContext.Set<MessageRecipient>().Where(mr => mr.UserId == Id);
+            IQueryable<Message> messages = _dataContext.Set<Message>().Join(recipientMessages, m => m.Id, rm => rm.MessageId, (m, rm) => m);
 
             return messages.ToList();
         }

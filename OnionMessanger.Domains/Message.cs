@@ -16,6 +16,7 @@ namespace OnionMessenger.Domains
         // zaimplementuj custom attribute for default
         // https://stackoverflow.com/questions/19554050/entity-framework-6-code-first-default-value
         public DateTime TimeCreated { get; set; }
+        public DateTime TimeModified { get; set; }
         [Required]
         [ForeignKey("User")]
         public int AuthorId { get; set; }

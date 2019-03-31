@@ -11,7 +11,7 @@ namespace OnionMessenger.WebApi.Mappers
         public MessageProfile()
         {
             CreateMap<MessageInput, MessageDTO>().ReverseMap();
-            CreateMap<MessageDTO, Message>();
+            CreateMap<MessageDTO, Message>().ReverseMap();
 
         }
     }

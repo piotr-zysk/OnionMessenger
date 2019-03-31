@@ -77,6 +77,8 @@ namespace OnionMessenger.Webapi.Logic
                 result.Errors = new List<ErrorMessage>() { error };
             }
 
+            //messageDTO = _mapper.Map<MessageDTO>(message);  -- w ten sposób otrzymujemy obiekt zgodny ze stanem bazy danych, ale z Recipients==null;
+            messageDTO.TimeModified = message.TimeModified;
 
             if (result.Success) return Result.Ok<MessageDTO>(messageDTO);
             else return Result.Failure<MessageDTO>(result.Errors);

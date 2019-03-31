@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201903301811372_Message.UserId-AuthorId.Designer.cs">
       <DependentUpon>201903301811372_Message.UserId-AuthorId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903311337093_Added Message.TimeModified.cs" />
+    <Compile Include="Migrations\201903311337093_Added Message.TimeModified.Designer.cs">
+      <DependentUpon>201903311337093_Added Message.TimeModified.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\MessageRepository.cs" />
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903301811372_Message.UserId-AuthorId.resx">
       <DependentUpon>201903301811372_Message.UserId-AuthorId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903311337093_Added Message.TimeModified.resx">
+      <DependentUpon>201903311337093_Added Message.TimeModified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

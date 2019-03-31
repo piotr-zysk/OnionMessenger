@@ -13,6 +13,8 @@ namespace OnionMessenger.Logic.DTO
 
         public DateTime TimeCreated { get; set; }
 
+        public DateTime TimeModified { get; set; }
+
         public int AuthorId { get; set; }
 
         public byte Priority { get; set; }
