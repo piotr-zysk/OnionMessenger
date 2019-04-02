@@ -21,7 +21,9 @@ namespace OnionMessenger.Logic
 
         User Update(User user);
 
-        void Delete(int id); 
+        void Delete(int id);
+
+        User GetWithMessages(int id);
 
     }
 }

@@ -25,6 +25,17 @@ namespace OnionMessenger.DataAccess.Repositories
             return user;
         }
 
+        public User GetWithMessages(int id)
+        {
+            // explicit load
+            //var user = _dataContext.Set<User>().Where(u => u.Id == id).FirstOrDefault();
+            //_dataContext.Entry(user).Collection(u => u.Messages).Load();
+            //return user;
+
+
+            //eager load
+            return _dataContext.Set<User>().Where(u=>u.Id==id).Include(u => u.Messages).FirstOrDefault();
+        }
     }
 
 }

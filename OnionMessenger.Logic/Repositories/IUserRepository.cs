@@ -9,5 +9,7 @@ namespace OnionMessenger.Logic.Repositories
         Task<User> GetByLoginAsync(string login);
 
         User GetByLogin(string login);
+
+        User GetWithMessages(int id);
     }
 }

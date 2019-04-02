@@ -31,6 +31,13 @@ namespace OnionMessenger.WebApi.Controllers
             return await _userLogic.GetByIdAsync(id);
         }
 
+        [Route("api/user/getwm/{id}")]
+        [HttpGet]
+        public User GetWM(int id)
+        {
+            return _userLogic.GetWithMessages(id);
+        }
+
         [Route("api/user/getbylogin/{login}")]
         [HttpGet]
         public async Task<User> GetByLoginAsync(string login)

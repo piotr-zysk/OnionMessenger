@@ -85,6 +85,9 @@ namespace OnionMessenger.Webapi.Logic
             else return false;            
         }
 
-
+        public User GetWithMessages(int id)
+        {
+            return Repository.GetWithMessages(id);
+        }
     }
 }
