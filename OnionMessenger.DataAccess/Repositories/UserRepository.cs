@@ -34,7 +34,7 @@ namespace OnionMessenger.DataAccess.Repositories
 
 
             //eager load
-            return _dataContext.Set<User>().Where(u=>u.Id==id).Include(u => u.Messages).FirstOrDefault();
+            return _dataContext.Set<User>().Where(u=>u.Id==id).Include(u => u.Messages).FirstOrDefault();            
         }
     }
 

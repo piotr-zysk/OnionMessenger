@@ -18,7 +18,10 @@ namespace OnionMessenger.Domains
         public string Password { get; set; }
         
         public byte Age { get; set; }
+        
         public ICollection<Message> Messages { get; set; }
 
+        //Lazy loading
+        //public virtual ICollection<Message> Messages { get; set; }
     }
 }
