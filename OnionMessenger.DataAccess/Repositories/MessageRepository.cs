@@ -5,6 +5,7 @@ using OnionMessenger.Domains;
 using OnionMessenger.Logic.Repositories;
 using System.Linq;
 using OnionMessenger.Logic.DTO;
+using System.Diagnostics;
 
 namespace OnionMessenger.DataAccess.Repositories
 {
@@ -34,14 +35,20 @@ namespace OnionMessenger.DataAccess.Repositories
 
         public MessageWithRecpientNamesDTO GetMessageWithRecipientNames(int messageID)
         {
-            return _dataContext.Set<Message>().Where(m=>m.Id==messageID)
+            /*
+             * logowanie aktywnosci EF do zmienej ss
+            string ss = "";
+            _dataContext.Database.Log = s => ss+=s;
+            */
+
+            return _dataContext.Set<Message>().Where(m => m.Id == messageID)
                     .GroupJoin(
                         _dataContext.Set<MessageRecipient>(),
                         m => m.Id,
                         mr => mr.MessageId,
                         (m, mr) => new MessageWithRecpientNamesDTO()
-                        {                            
-                            Title=m.Title,
+                        {
+                            Title = m.Title,
                             Content=m.Content,
                             AuthorId=m.AuthorId,
                             TimeCreated=m.TimeCreated,
