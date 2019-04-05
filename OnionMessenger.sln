@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMessanger.Domains", "OnionMessanger.Domains\OnionMessanger.Domains.csproj", "{A81A9002-3059-492B-8A99-F0719D19AC79}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMessenger.Infrastructure", "OnionMessenger.Infrastructure\OnionMessenger.Infrastructure.csproj", "{A6871FF0-8956-4866-A192-C3A28160D3C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMessenger.UnitTests", "OnionMessenger.UnitTests\OnionMessenger.UnitTests.csproj", "{41DB7DB1-FD09-4497-B123-A0BE571DFB6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMessenger.DataGenerator", "OnionMessenger.DataGenerator\OnionMessenger.DataGenerator.csproj", "{9384D5FF-054E-4AC6-BFAD-A2075C73E7C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{41DB7DB1-FD09-4497-B123-A0BE571DFB6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41DB7DB1-FD09-4497-B123-A0BE571DFB6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41DB7DB1-FD09-4497-B123-A0BE571DFB6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9384D5FF-054E-4AC6-BFAD-A2075C73E7C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9384D5FF-054E-4AC6-BFAD-A2075C73E7C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9384D5FF-054E-4AC6-BFAD-A2075C73E7C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9384D5FF-054E-4AC6-BFAD-A2075C73E7C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
