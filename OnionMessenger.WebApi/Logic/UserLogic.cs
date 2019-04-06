@@ -36,6 +36,11 @@ namespace OnionMessenger.Webapi.Logic
             return await Repository.GetByIdAsync(id);
         }
 
+        public User GetByLogin(string login)
+        {
+            return Repository.GetByLogin(login);
+        }
+
         public async Task<User> GetByLoginAsync(string login)
         {
             //Logger logger = LogManager.GetCurrentClassLogger();

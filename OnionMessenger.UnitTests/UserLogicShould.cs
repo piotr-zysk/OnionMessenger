@@ -4,6 +4,7 @@ using Moq;
 using OnionMessenger.Logic.Repositories;
 using OnionMessenger.Webapi.Logic;
 using OnionMessenger.Domains;
+using System;
 
 namespace OnionMessenger.UnitTests
 {
@@ -13,12 +14,14 @@ namespace OnionMessenger.UnitTests
         IUserLogic ul;
         public UserLogicShould()
         {
-            Mock<IUserRepository> userRepository = new Mock<IUserRepository>();
+            var UserRepository = new Mock<IUserRepository>();
             
-            userRepository.Setup(x => x.GetByLogin(It.IsAny<string>())).Returns(new User() { Id = 2, Login = "user1" });
-            userRepository.Setup(x => x.GetByLogin("user1")).Returns(new User() { Id = 1, Login = "user1" });
+            UserRepository.Setup(x => x.GetByLogin(It.IsAny<string>())).Returns(new User() { Id = 2, Login = "user1" });
+            UserRepository.Setup(x => x.GetByLogin("user1")).Returns(new User() { Id = 1, Login = "user1" });
 
-            this.ul = new UserLogic(userRepository.Object);
+            var userRepository = new Lazy<IUserRepository>(() => UserRepository.Object);
+
+            this.ul = new UserLogic(userRepository);
         }
       
 
@@ -26,13 +29,18 @@ namespace OnionMessenger.UnitTests
         
         public void PassingTest()
         {
-            var user = ul.GetByLoginAsync("user2");           
+            var user = ul.GetByLogin("user1");           
 
 
-            Assert.Equal(2, user?.Id);            
+            Assert.Equal(1, user?.Id);            
         }
 
         
 
     }
 }
+
+
+/// dodaj testowanie metody asynchronicznej
+/// przenies UserLogic i MessageLogic do projektu Logic (usun automapper)
+/// 

@@ -19,6 +19,8 @@ namespace OnionMessenger.Logic
 
         Task<User> GetByLoginAsync(string login);
 
+        User GetByLogin(string login);
+
         User Update(User user);
 
         void Delete(int id);
