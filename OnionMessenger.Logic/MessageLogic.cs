@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using AutoMapper;
 using OnionMessenger.Domains;
-using OnionMessenger.Logic;
 using OnionMessenger.Logic.DTO;
 using OnionMessenger.Logic.Repositories;
-using OnionMessenger.WebApi.ViewModels;
 
-namespace OnionMessenger.Webapi.Logic
+namespace OnionMessenger.Logic
 {
     class MessageLogic : IMessageLogic
     {

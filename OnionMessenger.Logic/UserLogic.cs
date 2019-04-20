@@ -7,7 +7,7 @@ using OnionMessenger.Logic;
 //using NLog;
 using System.Threading.Tasks;
 
-namespace OnionMessenger.Webapi.Logic
+namespace OnionMessenger.Logic
 {
     public class UserLogic : IUserLogic
     {

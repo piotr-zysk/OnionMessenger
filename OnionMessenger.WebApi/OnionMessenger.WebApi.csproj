@@ -358,8 +358,6 @@
     <Compile Include="Infrastructure\Interceptors\CacheInterceptor.cs" />
     <Compile Include="Infrastructure\Interceptors\LogInterceptor.cs" />
     <Compile Include="Infrastructure\Interceptors\PollyInterceptor.cs" />
-    <Compile Include="Logic\MessageLogic.cs" />
-    <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Mappers\MessageProfile.cs" />
     <Compile Include="Mappers\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -434,6 +432,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Logic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

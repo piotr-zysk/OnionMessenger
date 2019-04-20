@@ -3,7 +3,6 @@ using Autofac.Extras.DynamicProxy;
 using OnionMessenger.WebApi.Infrastructure.Interceptors;
 using OnionMessenger.Logic;
 using System.Linq;
-using OnionMessenger.Webapi.Logic;
 
 namespace OnionMessenger.WebApi.App_Start.AutofacModules
 {
