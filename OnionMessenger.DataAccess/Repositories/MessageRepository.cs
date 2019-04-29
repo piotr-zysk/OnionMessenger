@@ -6,6 +6,7 @@ using OnionMessenger.Logic.Repositories;
 using System.Linq;
 using OnionMessenger.Logic.DTO;
 using System.Diagnostics;
+using Z.EntityFramework.Plus;
 
 namespace OnionMessenger.DataAccess.Repositories
 {
@@ -66,7 +67,7 @@ namespace OnionMessenger.DataAccess.Repositories
                                     Id=u.Id
                                 }
                             )
-                        }).FirstOrDefault();
+                        }).FromCache().FirstOrDefault();
                 
         }
 
@@ -74,7 +75,7 @@ namespace OnionMessenger.DataAccess.Repositories
         {
             var messageRecipients = _dataContext.Set<MessageRecipient>().Where(mr => mr.MessageId == messageId);
             var recipients = _dataContext.Set<User>().Join(messageRecipients, r => r.Id, mr => mr.UserId, (r, mr) => r);
-            return recipients.ToList();
+            return recipients.FromCache().ToList();
         }
     }
 }
